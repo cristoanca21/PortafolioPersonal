@@ -1,0 +1,67 @@
+/* ═══════════════════════════════════════════
+   Scroll Animations
+   ═══════════════════════════════════════════ */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s var(--ease-out),
+              transform 0.7s var(--ease-out);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+.animate-on-scroll:nth-child(3) { transition-delay: 0.2s; }
+.animate-on-scroll:nth-child(4) { transition-delay: 0.3s; }
+
+/* Project card animations */
+.project-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s var(--ease-out),
+              transform 0.6s var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out);
+}
+
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .project-card {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero__floating-card {
+    animation: none;
+  }
+
+  .tech-ribbon__track {
+    animation: none;
+  }
+
+  .btn {
+    transition: none;
+  }
+
+  .status-dot {
+    animation: none;
+  }
+}

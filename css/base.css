@@ -1,0 +1,75 @@
+/* ═══════════════════════════════════════════
+   Base / Reset Styles
+   ═══════════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(env(safe-area-inset-top, 0px) + var(--nav-height) + 20px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font: 400 1rem/1.7 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background var(--duration-normal) var(--ease-out),
+              color var(--duration-normal) var(--ease-out);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+a:hover {
+  color: var(--accent-light);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-hover);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
